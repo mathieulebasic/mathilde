@@ -3,6 +3,7 @@
   "dockerfileLines": [
     "FROM node:14-alpine",
     "COPY . /usr/src/app",
+    "ls",
     "CMD [\"ls\"]",
     "CMD [ \"npm\", \"build\" ]"
   ]
