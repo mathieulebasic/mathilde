@@ -1,11 +1,8 @@
 {
   "schemaVersion": 2,
   "dockerfileLines": [
-    "FROM node:18-alpine",
-    "COPY . /usr/src/app",
-    "WORKDIR /usr/src/app",
-    "RUN npm install && npm cache clean --force",
-    "CMD [ \"npm\", \"run\", \"build\" ]",
-    "CMD [ \"npm\", \"run\", \"serve\" ]"
+    "FROM socialengine/nginx-spa:latest",
+    "COPY ./dist /app",
+    "RUN chmod -R 777 /app"
   ]
 }
