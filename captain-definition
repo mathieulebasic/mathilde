@@ -2,6 +2,7 @@
   "schemaVersion": 2,
   "dockerfileLines": [
     "FROM node:12-alpine",
+    "COPY . /usr/src/app",
     "RUN npm install && npm cache clean --force && npm build && npm serve",
     "CMD [ \"npm\", \"build\" ]"
   ]
