@@ -3,7 +3,8 @@
   "dockerfileLines": [
     "FROM node:12-alpine",
     "COPY . /usr/src/app",
-    "RUN npm install && npm cache clean --force && npm build && npm serve",
+    "RUN ls",
+    "RUN npm install && npm cache clean --force && npm run build && npm run serve",
     "CMD [ \"npm\", \"build\" ]"
   ]
 }
