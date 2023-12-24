@@ -1,14 +1,12 @@
 <template>
-  <div id="projet">
-    <div id="texte">
+  <div id="projet" :class="[theme, dispositionTexte]">
+    <div id="texte" :style="{ 'background-color': couleurscoteTexte }">
+      <h2>{{ sousTitreEN }}</h2>
       <h1>{{ titre }}</h1>
       <h2>{{ sousTitreFR }}</h2>
     </div>
-    <div id="img">
-      <img
-        src="https://freight.cargo.site/w/1500/q/75/i/aeda44fab5b3661781ee65a8ade38b028435163c56b9a07688c3e07e4793beca/DSCF3384.jpg"
-        alt=""
-      />
+    <div id="img" :style="{ 'background-color': couleurscoteImage }">
+      <img :src="require(`@/assets/hp/` + imageURL)" alt="" />
     </div>
   </div>
 </template>
@@ -25,6 +23,30 @@ export default {
       type: String,
       default: "sous titre FR",
     },
+    sousTitreEN: {
+      type: String,
+      default: "sous titre EN",
+    },
+    imageURL: {
+      type: String,
+      default: "folie.jpg",
+    },
+    theme: {
+      type: String,
+      default: "theme1",
+    },
+    dispositionTexte: {
+      type: String,
+      default: "droite",
+    },
+    couleurscoteImage: {
+      type: String,
+      default: "#fdf5ee",
+    },
+    couleurscoteTexte: {
+      type: String,
+      default: "#b1b5fa",
+    },
   },
 };
 </script>
@@ -36,25 +58,31 @@ export default {
   height: 70vh;
 }
 
-#texte {
+.theme1 #texte {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 16px;
   height: 100%;
   width: 100%;
-  background-color: #fdf5ee;
 }
 
-#img {
+.gauche #texte {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.droite #texte {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+.theme1 #img {
   display: flex;
   justify-content: center;
   align-items: center;
   height: inherit;
   width: 100%;
-  background-color: #b1b5fa;
-  grid-column-start: 1;
-  grid-row-start: 1;
 }
 
 #img img {

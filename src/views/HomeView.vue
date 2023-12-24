@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <carreProjet imageUrl="folie.jpg" titre="folie" />
+    <carreProjet dispositionTexte="gauche" couleurscoteTexte="#f7d0ed" />
     <carreProjet />
   </div>
 </template>
